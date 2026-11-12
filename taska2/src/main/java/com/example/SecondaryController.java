@@ -3,10 +3,15 @@ package com.example;
 import java.io.IOException;
 import javafx.fxml.FXML;
 
-/** Handles navigation actions on the secondary view. */
+/**
+ * This class controls the second screen.
+ * It has the button action to go back to the first screen.
+ */
 public class SecondaryController {
 
-    /** Returns to the primary view when its navigation action is triggered. */
+    /**
+     * This method is called when the user wants to return to the main screen.
+     */
     @FXML
     private void switchToPrimary() throws IOException {
         App.setRoot("primary");

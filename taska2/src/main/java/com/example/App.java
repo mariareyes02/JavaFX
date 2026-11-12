@@ -9,17 +9,20 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Starts the JavaFX application and provides helpers for loading its screens.
+ * This is the main class for the JavaFX app.
+ * It starts the app and loads the first screen.
  */
 public class App extends Application {
 
+    // This keeps track of the current screen so we can switch pages.
     private static Scene scene;
 
     /**
-     * Loads the initial view, configures the main window, and displays it.
+     * This method runs when the app starts.
+     * It loads the first FXML file and shows it on the screen.
      *
-     * @param primaryStage the main window supplied by the JavaFX runtime
-     * @throws IOException if the initial FXML view cannot be loaded
+     * @param primaryStage the main window of the app
+     * @throws IOException if the FXML file cannot be opened
      */
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -31,20 +34,22 @@ public class App extends Application {
     }
 
     /**
-     * Replaces the content of the shared scene with the requested FXML view.
+     * This method changes the screen to another FXML page.
+     * For example, it can switch from the main page to the second page.
      *
-     * @param fxml the view name, without the .fxml extension
-     * @throws IOException if the requested FXML view cannot be loaded
+     * @param fxml the name of the FXML file without the .fxml part
+     * @throws IOException if the new page cannot load
      */
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
     /**
-     * Loads an FXML file from the same package as this application class.
+     * This method loads an FXML file and returns its root object.
+     * The root object is the main layout for that page.
      *
-     * @param fxml the view name, without the .fxml extension
-     * @return the root node defined by the FXML file
+     * @param fxml the name of the FXML file without the .fxml part
+     * @return the layout for the page
      * @throws IOException if the FXML file cannot be loaded
      */
     private static Parent loadFXML(String fxml) throws IOException {
@@ -53,10 +58,11 @@ public class App extends Application {
     }
 
     /**
-     * Application entry point; delegates startup to the JavaFX runtime.
+     * This is the starting point for the whole app.
+     * It tells JavaFX to launch the application.
      *
-     * @param args command-line arguments passed to the application
-     * @throws Exception if application startup fails
+     * @param args command-line arguments
+     * @throws Exception if something goes wrong while starting the app
      */
     public static void main(String[] args) throws Exception {
         launch(args);
